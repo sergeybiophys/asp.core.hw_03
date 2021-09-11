@@ -1,0 +1,19 @@
+﻿@using WebApplication1.Models.Products
+@model ProductViewModel
+
+<div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <img src="https://nsportal.ru/sites/default/files/2019/04/17/kartochki_produktov_1.jpg" class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">Product: @Model.Name</h5>
+                <p class="card-text">Quantity: @Model.Quantity</p>
+                <p class="card-text">Price: @Model.Price $</p>
+                <p class="card-text">Category Id#: @Model.CategoryId</p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+        </div>
+    </div>
+</div>

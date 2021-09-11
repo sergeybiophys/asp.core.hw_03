@@ -1,0 +1,31 @@
+﻿@using WebApplication1.Models.Products
+
+
+
+@model ProductIndexViewModel
+
+
+<h1>Products by category</h1>
+<hr />
+
+@if (Model.Products.Count>0)
+{
+    <div class="product-list">
+ 
+        @foreach (var product in Model.Products)
+        {
+            <div class="category-info">
+
+                @await Html.PartialAsync("_ProductInCategory", product)
+                <div class="category-actions">
+                </div>
+            </div>
+        }
+    </div>
+
+}
+else
+{
+    <h4>this category does not contain a list of products </h4>
+
+}

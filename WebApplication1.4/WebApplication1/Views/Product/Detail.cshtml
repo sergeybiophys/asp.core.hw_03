@@ -1,0 +1,6 @@
+﻿@using WebApplication1.Models.Products
+@model ProductViewModel
+
+<a asp-action="Index">Back to Products</a>
+<h3>Products full info</h3>
+@await Html.PartialAsync("_Detail", Model)

@@ -1,0 +1,36 @@
+﻿@using WebApplication1.Models.Category
+
+@model CategoryIndexViewModel
+
+
+@{
+    ViewData["Title"] = "Category Page";
+}
+
+<h1>Categories</h1>
+<hr />
+<a style="justify-content: center" asp-action="Create">Create</a>
+<hr />
+@if (Model.Categories.Count > 0)
+{
+    <div class="people-list">
+
+        @foreach (var category in Model.Categories)
+        {
+            <div class="category-info">
+       
+                @await Html.PartialAsync("_Category", category)
+                <div class="category-actions">
+                    @*<a asp-action="Delete" asp-route-id="@category.Id">Delete</a> |*@
+                    <a asp-action="Edit" asp-route-id="@category.Id">Edit</a> |
+                    @*<a asp-action="ViewProducts" asp-route-id="@category.Id">View Products...</a>*@
+                </div>
+            </div>
+        }
+    </div>
+
+}
+else
+{
+    <h4>Category list is empty</h4>
+}

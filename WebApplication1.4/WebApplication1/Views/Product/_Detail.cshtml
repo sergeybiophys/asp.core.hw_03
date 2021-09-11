@@ -1,0 +1,14 @@
+﻿
+@using WebApplication1.Models.Products
+@model ProductViewModel
+
+<div class="card bg-dark text-white">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTasg4xTIs-9HlNPCQEENbPMJrLl6H6QpVRA&usqp=CAU" class="card-img" alt="...">
+    <div  class="card-img-overlay">
+        <h3 class="card-title">Product: @Model.Name</h3>
+        <h3 class="card-text">Quantity: @Model.Quantity</h3>
+        <h3 class="card-text">Price: @Model.Price $</h3>
+        <h3 class="card-text">Category Id#: @Model.CategoryId</h3>
+        <h3 class="card-text"><small class="text-muted">Last updated 1 mins ago</small></h3>
+    </div>
+</div>

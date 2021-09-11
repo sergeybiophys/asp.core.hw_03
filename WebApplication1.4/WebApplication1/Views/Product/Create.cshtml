@@ -1,0 +1,36 @@
+﻿
+
+@using WebApplication1.Models.Category
+
+@model CategoryIndexViewModel
+
+
+<form method="post">
+    <div class="form-group">
+        <label for="name-input">Product Name</label>
+        <input type="text" name="Name" class="form-control" id="name-input" aria-describedby="emailHelp">
+    </div>
+    <div class="form-group">
+        <label for="quantity-input">Quantity</label>
+        <input type="number" name="Quantity" class="form-control" id="quantity-input" aria-describedby="emailHelp">
+    </div>
+    <div class="form-group">
+        <label for="price-input">Price</label>
+        <input type="number" name="Price" class="form-control" id="price-input" aria-describedby="emailHelp">
+    </div>
+    <div class="form-group">
+        <hr />
+        <label for="category-input">Category</label>
+
+    <select style="float: right"  class="form-select" name="CategoryId" id="category-input">
+        <option  selected>Choose Category</option>
+        @foreach (var item in ViewBag.categories)
+        {
+            <option value="@item.Id">@item.Name</option>
+        }
+    </select>
+    <hr />
+    </div>
+    <button style="float: right;" type="submit" class="btn btn-primary">Submit</button>
+</form>
+

@@ -1,0 +1,19 @@
+﻿@using WebApplication1.Models.Products
+@model ProductViewModel
+
+<div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <img src="https://n1s1.hsmedia.ru/47/a7/a6/47a7a6808c6c5e3d3b68840d05f583b1/728x542_1_a5c1f65a47a43547a6cf130f91e4d0a6@1000x745_0xac120003_574635991562644223.jpg" class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">Name: @Model.Name</h5>
+                <p class="card-text">Quantity: @Model.Quantity</p>
+                <p class="card-text">Price: @Model.Price $</p>
+                <p class="card-text">Category: @Model.CategoryId</p>
+                <p class="card-text"><small class="text-muted">Last updated 1 mins ago</small></p>
+            </div>
+        </div>
+    </div>
+</div>

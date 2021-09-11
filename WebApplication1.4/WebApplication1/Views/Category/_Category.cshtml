@@ -1,0 +1,11 @@
+﻿@using WebApplication1.Models.Categories
+@model CategoryViewModel
+
+<div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+    <div class="card-header">Name: @Model.Name</div>
+    <div class="card-body">
+        <h6 class="card-title">Category Id#: @Model.Id</h6>
+        @*<p class="card-text">@Model.Products.Count</p>*@
+        <a asp-action="ViewProducts" asp-route-id="@Model.Id" class="btn btn-primary">Show products...</a>
+    </div>
+</div>
