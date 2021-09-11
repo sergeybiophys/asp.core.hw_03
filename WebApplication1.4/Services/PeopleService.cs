@@ -36,30 +36,13 @@ namespace Services
             unitOfWork.SaveChanges();
             
             return mapper.Map<PersonDto>(tmp);
-            //;
-            //return tmpDto;
-            //return new PersonDto
-            //{
-            //    Id = tmp.Id,
-            //    FirstName = tmp.FirstName,
-            //    LastName = tmp.LastName,
-            //    Birth = tmp.Birth,
-            //    CreatedAt = tmp.CreatedAt
-            //};
+
         }
 
         public IEnumerable<PersonDto> GetAllPeople()
         {
             var people = unitOfWork.PeopleRepository.GetAll();
-            // TODO: AutoMapper
-           // return people.Select((p) => new PersonDto
-            //{
-            //    Id = p.Id,
-            //    Birth = p.Birth,
-            //    FirstName = p.FirstName,
-            //    LastName = p.LastName,
-            //    CreatedAt = p.CreatedAt
-            //}).ToList();
+
             return mapper.Map<IEnumerable<PersonDto>>(people);
         }
 
@@ -67,14 +50,7 @@ namespace Services
         {
             var person = unitOfWork.PeopleRepository.Get(id);
             return mapper.Map<PersonDto>(person);
-            //return new PersonDto
-            //{
-            //    Id = person.Id,
-            //    FirstName = person.FirstName,
-            //    LastName = person.LastName,
-            //    Birth = person.Birth,
-            //    CreatedAt = person.CreatedAt
-            //};
+
         }
 
         public void RemovePersonById(Guid id)

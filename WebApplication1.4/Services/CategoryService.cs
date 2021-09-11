@@ -23,15 +23,22 @@ namespace Services
         }
 
 
-        public void CreateNewCategory(CategoryDto category)
+        public CategoryDto CreateNewCategory(CategoryDto category)
         {
-            this.uow.CategoriesRepository.Create(new Category
+            var tmp = new Category
             {
                 Name = category.Name,
                 Products = new List<Product>()
-            }) ;
-
+            };
+            //this.uow.CategoriesRepository.Create(new Category
+            //{
+            //    Name = category.Name,
+            //    Products = new List<Product>()
+            //}) ;
+            this.uow.CategoriesRepository.Create(tmp);
             this.uow.SaveChanges();
+
+            return mapper.Map<CategoryDto>(tmp);
         }
 
         public IEnumerable<CategoryDto> GetAllCategories()
@@ -65,17 +72,28 @@ namespace Services
             this.uow.SaveChanges();
         }
 
-        public void UpdateCategory(CategoryDto category)
+        public CategoryDto UpdateCategory(CategoryDto category)
         {
-            this.uow.CategoriesRepository.Update(new Category
+            var tmp = new Category
             {
                 Id = category.Id,
                 CreatedAt = category.CreatedAt,
                 Name = category.Name,
                 //Products = (ICollection<Product>)category.Products
                 Products = mapper.Map<ICollection<Product>>(category.Products)
-            });
+            };
+            //this.uow.CategoriesRepository.Update(new Category
+            //{
+            //    Id = category.Id,
+            //    CreatedAt = category.CreatedAt,
+            //    Name = category.Name,
+            //    //Products = (ICollection<Product>)category.Products
+            //    Products = mapper.Map<ICollection<Product>>(category.Products)
+            //});
+            this.uow.CategoriesRepository.Update(tmp);
             this.uow.SaveChanges();
+
+            return mapper.Map<CategoryDto>(tmp);
         }
     }
 }

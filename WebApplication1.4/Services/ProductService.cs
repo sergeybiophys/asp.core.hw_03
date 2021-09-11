@@ -22,9 +22,8 @@ namespace Services
             this.uow = uow;
             this.mapper = mapper;
         }
-        public void CreateNewProduct(ProductDto product, CategoryDto category)
+        public ProductDto CreateNewProduct(ProductDto product, CategoryDto category)
         {
-            //TODO refactoring 
 
             var tmpCategory = new Category
             {
@@ -49,6 +48,8 @@ namespace Services
             this.uow.CategoriesRepository.Update(tmpCategory);
 
             this.uow.SaveChanges();
+
+            return mapper.Map<ProductDto>(tmpProduct);
         }
 
         public IEnumerable<ProductDto> GetAllProducts()
@@ -89,9 +90,9 @@ namespace Services
             this.uow.SaveChanges();
         }
 
-        public void UpdateProduct(ProductDto product)
+        public ProductDto UpdateProduct(ProductDto product)
         {
-            this.uow.ProductsRepository.Update(new Product
+            var tmp = new Product
             {
                 Id = product.Id,
                 CreatedAt = product.CreatedAt,
@@ -101,8 +102,23 @@ namespace Services
                 Category = mapper.Map<Category>(product.Category),
                 CategoryId = product.CategoryId,
                 Image = product.Image
-            });
+            };
+
+            //this.uow.ProductsRepository.Update(new Product
+            //{
+            //    Id = product.Id,
+            //    CreatedAt = product.CreatedAt,
+            //    Name = product.Name,
+            //    Quantity = product.Quantity,
+            //    Price = product.Price,
+            //    Category = mapper.Map<Category>(product.Category),
+            //    CategoryId = product.CategoryId,
+            //    Image = product.Image
+            //});
+            this.uow.ProductsRepository.Update(tmp);
             uow.SaveChanges();
+
+            return mapper.Map<ProductDto>(tmp);
         }
     }
 }

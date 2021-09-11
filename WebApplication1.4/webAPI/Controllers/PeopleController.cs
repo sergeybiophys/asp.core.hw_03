@@ -38,14 +38,7 @@ namespace webAPI.Controllers
             var tmp = mapper.Map<PersonDto>(model);
 
             return serviceManager.PeopleService.CreateNewPerson(tmp);
-            //var tmp = serviceManager.PeopleService.CreateNewPerson(new PersonDto
-            //{
-            //    FirstName = model.FirstName,
-            //    LastName = model.LastName,
-            //    Birth = model.Birth
-            //});
-            //;
-            //return tmp;
+
         }
 
         [HttpPut]

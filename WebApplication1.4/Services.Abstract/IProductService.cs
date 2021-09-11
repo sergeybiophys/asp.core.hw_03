@@ -12,8 +12,8 @@ namespace Services.Abstract
     {
         IEnumerable<ProductDto> GetAllProducts();
         ProductDto GetProductById(int id);
-        void UpdateProduct(ProductDto product);
-        void CreateNewProduct(ProductDto product, CategoryDto category);
+        ProductDto UpdateProduct(ProductDto product);
+        ProductDto CreateNewProduct(ProductDto product, CategoryDto category);
         void RemoveProductById(int id);
 
     }
